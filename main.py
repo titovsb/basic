@@ -37,13 +37,13 @@ def MedCard():
 
     if userAge < 30 and ((userWeight > minWeight) and (userWeight < maxWeight)):
         # норма
-        print(userName, 'в хорошем состоянии')
+        print(f'{userName}, {userAge}год, вес {userWeight} - хорошее состояние')
     elif userAge > 30 and ((userWeight < minWeight) or (userWeight > maxWeight)):
         # позаниматься
-        print(userName, 'требуется заняться собой')
+        print(f'{userName}, {userAge}год, вес {userWeight} - следует заняться собой')
     elif userAge > 40 and ((userWeight < minWeight) or (userWeight > maxWeight)):
         # к доктору
-        print(userName, 'требуется врачебный осмотр')
+        print(f'{userName}, {userAge}год, вес {userWeight} - требуется обратиться к врачу')
     else:
         print('Состояние здоровья', userName, 'нам не известно. Обратитесь к другому доктору.')
 
