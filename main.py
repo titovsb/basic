@@ -1,17 +1,56 @@
-# This is a sample Python script.
+'''
+1: Запросите от пользователя число, сохраните в переменную, прибавьте к числу 2 и выведите результат на экран. Если возникла ошибка, прочитайте ее, вспомните урок и постарайтесь устранить ошибку.
+2: Используя цикл, запрашивайте у пользователя число, пока оно не станет больше 0, но меньше 10.
+После того, как пользователь введет корректное число, возведите его в степень 2 и выведите на экран.
+Например, пользователь вводит число 123, вы сообщаете ему, что число неверное, и говорите о диапазоне допустимых. И просите ввести заново.
+Допустим, пользователь ввел 2, оно подходит. Возводим его в степень 2 и выводим 4.
+3: Создайте программу “Медицинская анкета”, где вы запросите у пользователя следующие данные: имя, фамилия, возраст и вес.
+Пациент в хорошем состоянии, если ему до 30 лет и вес от 50 и до 120 кг,
+Пациенту требуется заняться собой, если ему более 30 и вес меньше 50 или больше 120 кг
+Пациенту требуется врачебный осмотр, если ему более 40 и вес менее 50 или больше 120 кг.
+Все остальные варианты вы можете обработать на ваш вкус и полет фантазии.
+'''
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def First(plusDigit):
+    userDigit = int(input("Введите число: "))
+    increasedDigin = userDigit + plusDigit
+    print ("Увеличенное на", plusDigit, "число", increasedDigin)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def Second(minimum, maximum):
+    while True:
+        userDigit = int(input('Введите число от 0 до 10 и нажмите ввод: '))
+        if userDigit < minimum or userDigit > maximum:
+            print('Число не верное, попробуйте снова.')
+            continue
+        else:
+            print('Верно. Квадрат введенного числа', userDigit**2)
+            break
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print(__name__)
-    print_hi('PyCharm')
+def MedCard():
+    userName = input('Ваше имя и фамилия: ')
+    userAge = int(input('Ваш возраст: '))
+    userWeight = int(input('Вес: '))
+    minWeight = 50
+    maxWeight = 120
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    if userAge < 30 and ((userWeight > minWeight) and (userWeight < maxWeight)):
+        # норма
+        print(userName, 'в хорошем состоянии')
+    elif userAge > 30 and ((userWeight < minWeight) or (userWeight > maxWeight)):
+        # позаниматься
+        print(userName, 'требуется заняться собой')
+    elif userAge > 40 and ((userWeight < minWeight) or (userWeight > maxWeight)):
+        # к доктору
+        print(userName, 'требуется врачебный осмотр')
+    else:
+        print('Состояние здоровья', userName, 'нам не известно. Обратитесь к другому доктору.')
+
+
+print('Первое задание')
+First(2)
+print("Второе задание")
+Second(0, 10)
+print("Третье задание")
+MedCard()
